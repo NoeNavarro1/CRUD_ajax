@@ -52,16 +52,17 @@
         </div>
     </div>
     <!--Ventana para el modal-->
+    <!--Tiene un atributo id con el valor "modalUsuario" que se utiliza para identificarla en el código JavaScript-->
     <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog"> <!--definen la estructura interna de la ventana modal-->
+            <div class="modal-content"> <!--definen la estructura interna de la ventana modal-->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Crear Usuario</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="index.php" id="formulario" method="POST" enctype="multipart/form-data" action="">
                     <div class="moda-content">
-                        <div class="modal-body">
+                        <div class="modal-body"> <!--Dentro de modal-body se definen etiquetas <label> y campos de entrada <input>-->
                             <label for="nombre">Ingrese el nombre</label>
                             <input type="text" name="nombre" id="nombre" class="form-control" autocomplete="off">
                             <br>
@@ -84,7 +85,7 @@
                             <br>
                         </div>
 
-                        <div class="modal-footer">
+                        <div class="modal-footer"> <!--se incluyen campos ocultos-->
                             <input type="hidden" name="id_usuario" id="id_usuario">
                             <input type="hidden" name="operacion" id="operacion">
                             <input type="submit" name="action" id="action" class="btn btn-success" value="Crear">
@@ -103,14 +104,15 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- funcionalidad asociada al botón con el ID "botonCrear-->
     <script type="text/javascript">
         $(document).ready(function() {
             $("#botonCrear").click(function() {
-                $("#formulario")[0].reset();
-                $(".modal-title").text("Crear usuario");
-                $("#action").val("Crear");
-                $("#operacion").val("Crear"); 
-                $("#imagen_subida").html("");
+                $("#formulario")[0].reset(); // Se realiza un reset del formulario con ID "formulario
+                $(".modal-title").text("Crear usuario"); //Se establece el texto "Crear usuario"
+                $("#action").val("Crear"); //se establece el valor "Crear" para el campo  de entrada con el ID "action"
+                $("#operacion").val("Crear");  // Se establece el valor "Crear" para el campo de entrada con el ID "operacion"
+                $("#imagen_subida").html(""); // Se vacía el contenido del elemento con el ID "imagen_subida"
             })
             
             //Funcionalidad de el propio DataTables para mostrar y filtrar los datos
@@ -123,7 +125,7 @@
                     type: "POST",
                 },
                 "columnDefs": [{
-                    "targets":[3,4,5,7,8], //este targets sirve para los datos que no queremos que se filtren de las columnas
+                    "targets":[0,3,4,5,7,8], //este targets sirve para los datos que no queremos que se filtren de las columnas
                     "orderable":false
                 }, 
             ],
