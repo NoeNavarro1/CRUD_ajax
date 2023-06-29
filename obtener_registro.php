@@ -12,7 +12,7 @@ if (isset($_POST["id_usuario"])) {
         $salida["apellidos"] = $fila["apellidos"];
         $salida["telefono"] = $fila["telefono"];
         $salida["email"] = $fila["email"];
-        if ($fila["imagen"] != "") {
+        if (isset($fila["imagen"]) != "") {
             $salida["imagen_usuario"] = '<img src = "img/' . $fila["imagen"] . '"class = img-thumbnail" width ="50" heigth ="35"/><input type="hidden" name="imagen_usuario_oculta" value="'.$fila["imagen"].'" />';
         }else {
             $salida["imagen_usuario"] = '<input type="hidden" name="imagen_usuario_oculta" value="" />'; 
